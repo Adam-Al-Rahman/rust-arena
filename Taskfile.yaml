@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  check:
+    desc: "Lightning-fast AST validation."
+    silent: true
+    cmds:
+      - cargo check --color always
+
+  run:
+    desc: "Check syntax, then execute the binary."
+    silent: true
+    cmds:
+      - cargo run --color always
