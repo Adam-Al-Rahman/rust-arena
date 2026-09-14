@@ -1,8 +1,12 @@
-fn add<'a>(a: &'a i32, b: &'a i32) -> i32 {
-    a + b
-}
+use nalgebra::{DMatrix, DVector};
+use rust_arena::gauss_newton_step;
 
 fn main() {
-    let value = add(&4, &4);
-    println!("{}", value)
+    let jacobian = DMatrix::from_row_slice(2, 2, &[1.0, 0.0, 0.0, 1.0]);
+    let residuals = DVector::from_vec(vec![2.0, 2.0]);
+
+    match gauss_newton_step(&jacobian, &residuals) {
+        Ok(step) => println!("Gauss-Newton step computed: {:?}", step),
+        Err(e) => eprintln!("Error: {}", e),
+    }
 }

@@ -12,3 +12,4 @@ imports_granularity = "Crate"
 
 # Auto-wrap comments at 100 characters so they don't break multiplexer panes
 wrap_comments = true
+unstable_features = true
