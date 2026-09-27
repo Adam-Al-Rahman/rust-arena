@@ -26,6 +26,11 @@ tasks:
     cmds:
       - cargo +nightly fmt
 
+  miri:
+    desc: "Check for Undefined Behavior using Miri."
+    cmds:
+      - cargo +nightly miri test
+
   run:
     desc: "Check syntax, then execute the binary."
     cmds:

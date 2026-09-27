@@ -56,6 +56,7 @@ Use `task` to interact with the project declaratively:
 * `task test` - Run unit and integration tests via `cargo-nextest`
 * `task fmt` - Format the codebase (uses Nightly implicitly)
 * `task clippy` - Run lints (`-D warnings`)
+* `task miri` - Check for Undefined Behavior using Miri
 * `task debug` - Start a `rust-lldb` debugging session attached to the tmpfs binary
 * `task rr` - Record an execution trace with `rr`
 * `task security` - Audit dependencies and scan for secrets locally

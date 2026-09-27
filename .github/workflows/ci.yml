@@ -17,10 +17,10 @@ jobs:
       - name: "Checkout Repository"
         uses: actions/checkout@v4
 
-      - name: "Install Rust Toolchain (nightly for fmt)"
+      - name: "Install Rust Toolchain (nightly for fmt/miri)"
         uses: dtolnay/rust-toolchain@nightly
         with:
-          components: "rustfmt"
+          components: "rustfmt, miri, rust-src"
 
       - name: "Install Rust Toolchain (stable default)"
         uses: dtolnay/rust-toolchain@stable
@@ -43,6 +43,9 @@ jobs:
 
       - name: "Execute Tests"
         run: cargo nextest run
+
+      - name: "Check Undefined Behavior (Miri)"
+        run: cargo +nightly miri test
 
       - name: "Dependency Audit"
         run: cargo audit

@@ -128,3 +128,9 @@ command = [
 ]
 need_stdout = true
 analyzer = "nextest"
+
+[jobs.miri]
+command = [
+    "cargo", "+nightly", "miri", "test"
+]
+need_stdout = true
