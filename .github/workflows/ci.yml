@@ -15,7 +15,7 @@ jobs:
     
     steps:
       - name: "Checkout Repository"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: "Install Rust Toolchain (nightly for fmt/miri)"
         uses: dtolnay/rust-toolchain@nightly
@@ -37,7 +37,7 @@ jobs:
         run: cargo clippy -- -D warnings
 
       - name: "Install Build/Test Tools"
-        uses: taiki-e/install-action@v2.87.15
+        uses: taiki-e/install-action@v2.87.21
         with:
           tool: nextest,cargo-audit
 
